@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:16
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_DB=superpayment
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    ports:
+      - "5432:5432"
+
+  backend:
+    build: ./backend
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    environment:
+      - DEBUG=1
+      - SECRET_KEY=changeme
+      - DJANGO_ALLOWED_HOSTS=localhost,127.0.0.1,[::1],backend
+      - DATABASE_URL=postgres://postgres:postgres@db:5432/superpayment
+
+  frontend:
+    build: ./frontend
+    command: npm run dev
+    volumes:
+      - ./frontend:/app
+      - /app/.next
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000/api
+
+  widget:
+    image: nginx:alpine
+    volumes:
+      - ./widget:/usr/share/nginx/html
+    ports:
+      - "8080:80"
+
+volumes:
+  postgres_data:
