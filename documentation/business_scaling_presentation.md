@@ -1,11 +1,3 @@
----
-marp: true
-theme: default
-paginate: true
-backgroundColor: #1a1a2e
-color: #e0e0e0
----
-
 # 🚀 SuperPayment
 ## Global Scaling Strategy
 ### From Local Docker to Cloud Native
@@ -44,11 +36,11 @@ graph TD
     CDN --> User
     User --> LB
     
-    style Cloud fill:#2a2a3e,stroke:#4a4a5e,color:#fff
-    style LB fill:#f48fb1,stroke:#333
-    style API fill:#90caf9,stroke:#333
-    style Django fill:#a5d6a7,stroke:#333
-    style DB fill:#ffcc80,stroke:#333
+    style Cloud fill:#CCCCCC,stroke:#9e9e9e,color:#333
+    style LB fill:#3A2FB5,stroke:#333
+    style API fill:#7D1894,stroke:#333
+    style Django fill:#327524,stroke:#333
+    style DB fill:#C2A83C,stroke:#333
 ```
 
 - **Global CDN**: Millisecond latency for `widget.js`.
@@ -90,9 +82,8 @@ graph TD
 
 | Strategy | Setup | Monthly | Scaling | Verdict |
 | :--- | :---: | :---: | :---: | :--- |
-| **PaaS** (Vercel) | ⚡ Low | 💸 High | 🚀 Instant | **Start Here** |
 | **Cloud** (AWS) | ⚙️ High | 💰 Medium | 🏎️ Fast | **Growth Phase** ✅ |
-| **Bare Metal** | 🛠️ High | 💵 Low | 🐢 Slow | **Avoid (for now)** 🛑 |
+| **Bare Metal** | 🛠️ High | 💵 Low | 🐢 Slow | **Avoid** 🛑 |
 
 > **Recommendation**: Move to **AWS** for the €10M MRR milestone. 
 > Managed services = Stability = CFO Confidence.
