@@ -37,10 +37,10 @@ graph TD
     User --> LB
     
     style Cloud fill:#CCCCCC,stroke:#9e9e9e,color:#333
-    style LB fill:#3A2FB5,stroke:#fff
-    style API fill:#7D1894,stroke:#fff
-    style Django fill:#327524,stroke:#fff
-    style DB fill:#C2A83C,stroke:#333
+    style LB fill:#3A2FB5,stroke:#333,color:#333
+    style API fill:#7D1894,stroke:#333,color:#333
+    style Django fill:#327524,stroke:#333,color:#333
+    style DB fill:#C2A83C,stroke:#333,color:#333
 ```
 
 - **Global CDN**: Millisecond latency for `widget.js`.
