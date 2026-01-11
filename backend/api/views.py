@@ -2,6 +2,8 @@ from rest_framework import status, views, generics, permissions, authentication
 from rest_framework.response import Response
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import get_object_or_404
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.utils.decorators import method_decorator
 from .models import Purchase, Voucher, Ecommerce, PurchaseVoucher
 from .serializers import PurchaseSerializer, LoginSerializer
 
@@ -81,3 +83,10 @@ class LogoutView(views.APIView):
     def post(self, request):
         logout(request)
         return Response({'status': 'logged_out'}, status=status.HTTP_200_OK)
+
+@method_decorator(ensure_csrf_cookie, name='dispatch')
+class CsrfView(views.APIView):
+    permission_classes = [permissions.AllowAny]
+
+    def get(self, request):
+        return Response({'success': 'CSRF cookie set'})

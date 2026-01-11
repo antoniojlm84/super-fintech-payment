@@ -23,24 +23,9 @@ The project is containerized for easy setup.
     ```
 
 2.  **Start the application**:
-    We use a `Makefile` for convenience.
+    We use a `Makefile` for convenience. Run this command to start the application and initialize the database.
     ```bash
-    make up
-    ```
-    Alternatively:
-    ```bash
-    docker-compose up -d
-    ```
-
-3.  **Run Migrations**:
-    Initialize the database:
-    ```bash
-    make migrate
-    ```
-
-4.  **Create Superuser**:
-    ```bash
-    make superuser
+    make fresh-install
     ```
 
 ### Access Points

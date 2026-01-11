@@ -32,7 +32,7 @@ graph TD
     User -- API Requests --> WAF[Web App Firewall]
     WAF --> LB[Load Balancer]
     
-    subgraph "Private Coud VPC"
+    subgraph "AWS Cloud VPC"
         LB --> APIG[API Gateway]
         
         subgraph "Scaling Group"
@@ -109,8 +109,7 @@ We only ask the Merchant for **two** touchpoints. Simplicity is key to adoption.
 
 | Strategy | Setup Cost | Monthly Cost | Scaling Speed | Recommendation |
 | :--- | :--- | :--- | :--- | :--- |
-| **PaaS (Heroku/Vercel)** | Very Low | High (€€€) | Instant | **Phase 1 (Start)** |
-| **Cloud AWS** | High | Medium (€€) | Fast (Minutes) | **Phase 2 (Growth)** |
+| **Cloud AWS** | High | Medium (€€) | Fast (Minutes) | **Grow Phase** |
 | **Bare Metal** | High | Low (€) | Slow (Days) | Avoid until huge scale |
 
 **Why Cloud AWS?**

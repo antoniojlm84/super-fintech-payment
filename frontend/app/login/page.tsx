@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button, TextField, Box, Typography, Container, Alert } from '@mui/material';
 import { useRouter } from 'next/navigation';
 import api from '../../lib/api';
@@ -10,6 +10,11 @@ export default function LoginPage() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const router = useRouter();
+    
+    useEffect(() => {
+        // Ensure CSRF cookie is set
+        api.get('/csrf/').catch(() => {});
+    }, []);
 
     const handleLogin = async (e: React.FormEvent) => {
         e.preventDefault();
