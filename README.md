@@ -34,7 +34,7 @@ The project is containerized for easy setup.
 | :--- | :--- | :--- |
 | **Frontend** | [http://localhost:3000](http://localhost:3000) | Next.js Backoffice Dashboard |
 | **Backend API** | [http://localhost:8000](http://localhost:8000) | Django API Root |
-| **Widget Demo** | [http://localhost:8080](http://localhost:8080) | Static Widget Hosting |
+| **Widget Demo** | [http://localhost:8080/test.html](http://localhost:8080/test.html) | Static Widget Hosting |
 | **Database** | `localhost:5432` | PostgreSQL (User: `postgres`, Pass: `postgres`) |
 
 ### Useful Commands
